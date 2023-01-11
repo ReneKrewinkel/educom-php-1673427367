@@ -4,9 +4,13 @@ $nameErr = $emailErr = $genderErr = $websiteErr = "";
 $name = $email = $gender = $comment = $website = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = test_input($_POST["name"]);
   if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
-  } else {
+    $nameErr = "Name is required";}
+  elseif (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed";
+    }
+     else {
     $name = test_input($_POST["name"]);
   }
 
