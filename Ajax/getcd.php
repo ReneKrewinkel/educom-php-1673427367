@@ -2,7 +2,7 @@
 $q=$_GET["q"];
 
 $xmlDoc = new DOMDocument();
-$xmlDoc->load("cd_catalog.xml");
+$xmlDoc->load("https://www.w3schools.com/php/cd_catalog.xml");
 
 $x=$xmlDoc->getElementsByTagName('ARTIST');
 
