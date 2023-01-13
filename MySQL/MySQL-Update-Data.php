@@ -11,14 +11,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com')";
+$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
 
 if ($conn->query($sql) === TRUE) {
-  $last_id = $conn->insert_id;
-  echo "New record created successfully. Last inserted ID is: " . $last_id;
+  echo "Record updated successfully";
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "Error updating record: " . $conn->error;
 }
 
 $conn->close();

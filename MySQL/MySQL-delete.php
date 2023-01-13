@@ -11,14 +11,13 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com')";
+// sql to delete a record
+$sql = "DELETE FROM MyGuests WHERE id=3";
 
 if ($conn->query($sql) === TRUE) {
-  $last_id = $conn->insert_id;
-  echo "New record created successfully. Last inserted ID is: " . $last_id;
+  echo "Record deleted successfully";
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "Error deleting record: " . $conn->error;
 }
 
 $conn->close();
